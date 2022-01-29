@@ -53,10 +53,16 @@ const Background = styled.div`
 `
 
 const Bar = styled.div`
+  --bar-radius: 4px;
+  --percent-progress: ${p => p.value}%;
+  --right-edge-radius: calc(var(--bar-radius) + var(--percent-progress) - 100%);
   background-color: ${COLORS.primary};
-  width: ${p => p.value}%;
+  width: var(--percent-progress);
   height: 100%;
-  border-radius: 4px;
+  border-top-left-radius: var(--bar-radius);
+  border-bottom-left-radius: var(--bar-radius);
+  border-top-right-radius: var(--right-edge-radius);
+  border-bottom-right-radius: var(--right-edge-radius);
 `
 
 export default ProgressBar;
