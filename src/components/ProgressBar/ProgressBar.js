@@ -15,7 +15,9 @@ function ProgressBar({ value, size }) {
     aria-valuemin="0" aria-valuemax="100"
     size={size}
   >
-    <Bar value={numericValue} size={size}/>
+    <Bar value={numericValue} size={size}>
+      <VisuallyHidden>{value}%</VisuallyHidden>
+    </Bar>
   </Background>
   
   function sanitizeValue(value) {
