@@ -9,10 +9,26 @@ const Select = ({ label, value, onChange, children }) => {
   const displayedValue = getDisplayedValue(value, children);
 
   return (
-    <select value={value} onChange={onChange}>
-      {children}
-    </select>
+    <Wrapper>
+      {displayedValue}
+      <Selector value={value} onChange={onChange}>
+        {children}
+      </Selector>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  width: fit-content;
+  position: relative;
+`
+
+const Selector = styled.select`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+`
 
 export default Select;
