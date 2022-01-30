@@ -10,7 +10,8 @@ const Select = ({ label, value, onChange, children }) => {
 
   return (
     <Wrapper>
-      {displayedValue}
+      <span>{displayedValue}</span>
+      <Icon id='chevron-down'/>
       <Selector value={value} onChange={onChange}>
         {children}
       </Selector>
@@ -21,12 +22,28 @@ const Select = ({ label, value, onChange, children }) => {
 const Wrapper = styled.div`
   width: fit-content;
   position: relative;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  color: ${COLORS.gray700};
+  background-color: ${COLORS.transparentGray15};
+  border-radius: 8px;
+  padding: 12px 16px;
+
+  &:hover {
+    color: ${COLORS.black};
+  }
+
+  &:focus-within {
+    outline: solid 2px ${COLORS.black};
+  }
 `
 
 const Selector = styled.select`
   position: absolute;
   top: 0;
   left: 0;
+  bottom: 0;
   width: 100%;
   opacity: 0;
 `
