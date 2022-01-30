@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { COLORS } from '../../constants';
 import Icon from '../Icon';
+import VisuallyHidden from '../VisuallyHidden';
 import { getDisplayedValue } from './Select.helpers';
 
 const Select = ({ label, value, onChange, children }) => {
@@ -15,6 +16,7 @@ const Select = ({ label, value, onChange, children }) => {
       <Selector value={value} onChange={onChange}>
         {children}
       </Selector>
+      <VisuallyHidden>{label}</VisuallyHidden>
     </Wrapper>
   );
 };
